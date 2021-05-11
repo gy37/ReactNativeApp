@@ -10,9 +10,9 @@ const FlexBotTest = () => {
       values={["column", "row", "column-reverse", "row-reverse"]}
       selectedValue={flexDirection}
       setSelectedValue={setFlexDirection}>
-        <View style={[styles.box, { backgroudColor: "powderblue" }]}></View>
-        <View style={[styles.box, { backgroudColor: "skybule" }]}></View>
-        <View style={[styles.box, { backgroudColor: "steelblue" }]}></View>
+        <View style={[styles.box, { backgroundColor: "powderblue" }]}></View>
+        <View style={[styles.box, { backgroundColor: "skyblue" }]}></View>
+        <View style={[styles.box, { backgroundColor: "steelblue" }]}></View>
 
     </PreviewLayout>
   );
@@ -28,7 +28,7 @@ const PreviewLayout = ({
   <View style={{ padding: 10, flex: 1 }}>
     <Text style={styles.label}>{label}</Text>
     <View style={styles.row}>
-      {values.map((value)=>{
+      {values.map((value)=>(
           <TouchableOpacity
             key={value}
             onPress={()=>setSelectedValue(value)}
@@ -38,7 +38,7 @@ const PreviewLayout = ({
                 {value}
               </Text>
           </TouchableOpacity>
-        })}
+      ))}
     </View>
     <View style={[styles.container, {[label]: selectedValue}]}>{children}</View>
   </View>

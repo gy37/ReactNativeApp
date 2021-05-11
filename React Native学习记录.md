@@ -30,4 +30,5 @@
 14. react-native上的flexDirection和css中的flex类似，但是flexDirection的默认值是column而不是row，而flex也只能指定一个数字值。
 15. flexDirection布局方向（row, column），alignItems布局垂直方向的对齐方式（flex-start, center, flex-end），justifyContent布局方向的对齐方式（flex-start, center, flex-end, space-between, space-around）
 16. flex数字，表示占比。父视图需要设置大小或者flex之后才能使用
-17. 
+17. 使用require引用图片包括尺寸信息。如果需要动态设置图片大小， style 属性设置`{ width: null, height: null }`即可。网络图片需要手动指定图片的尺寸
+18.

@@ -32,6 +32,7 @@ import PizzaTranslator from './src/components/PizzaTranslator'
 import ScrollViewTest from './src/components/ScrollViewTest'
 import FastListTest from './src/components/FastListTest'
 import FlexBoxTest from './src/components/FlexBoxTest'
+import ImageTest from './src/components/ImageTest'
 
 const App = () => {//const App: () => React$Node = () => { Type annotations can only be used in TypeScript files.ts(8010)
 
@@ -89,6 +90,7 @@ const App = () => {//const App: () => React$Node = () => { Type annotations can 
             <FastListTest></FastListTest>
             <Text>{Platform.OS + " " + Platform.Version}</Text>
             <FlexBoxTest></FlexBoxTest>
+            <ImageTest></ImageTest>
           </View>
         </ScrollView>
       </SafeAreaView>
