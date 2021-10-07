@@ -30,5 +30,30 @@
 14. react-native上的flexDirection和css中的flex类似，但是flexDirection的默认值是column而不是row，而flex也只能指定一个数字值。
 15. flexDirection布局方向（row, column），alignItems布局垂直方向的对齐方式（flex-start, center, flex-end），justifyContent布局方向的对齐方式（flex-start, center, flex-end, space-between, space-around）
 16. flex数字，表示占比。父视图需要设置大小或者flex之后才能使用
-17. 使用require引用图片包括尺寸信息。如果需要动态设置图片大小， style 属性设置`{ width: null, height: null }`即可。网络图片需要手动指定图片的尺寸
-18.
+17. flex 属性决定元素在主轴上如何填满可用区域。整个区域会根据每个元素设置的 flex 属性值被分割成多个部分。
+18. flexDirection默认column方向
+19. 使用npm全局安装react-devtools失败，改用yarn成功
+20. alignItems: stretch填充，不要设置在交叉轴方向上的值才能生效
+21. alignSelf: 重写父节点的alignItems，自定义元素在交叉轴方向的排列
+22. 设置flexWrap: "wrap"之后，align-content才能生效，有多行内容时在交叉轴方向上的排列
+23. relative相对于原始文字进行定位，上左下右设置，在文档流中，不会影响其他元素；absolute相对于设置有relative或absolute属性的父元素进行定位，如果没有就相对于根元素定位，元素脱离文档流，会影响其他元素
+24. 引用图片source={require('./my-icon.png')}
+25. `<Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}} style={{width: 400, height: 400}} />`使用网络图片；`<Image source={require('./my-icon.png')} />`使用本地图片
+26. useRef设置ref属性，可以是节点或者变量，通过ref来获取，类似全局变量，结构是{current：''}
+27. react hooks，可以在函数组件中使用class中的特性，保存状态，声明周期，减少不必要的渲染等
+28. 但正是由于useEffect里面的内容在每次render结束后都会执行，可能有时候内部的内容并没有发生变化，这时就会产生冗余的render。这时候就需要引入依赖，由写程序的人来告诉react我这个useEffect依赖了外部的那些参数，只有这些参数发生变化的时候才去执行我里面的函数。
+```
+  useEffect(() => {
+      document.title = 'Hello, ' + name;
+  }, [name]); // Our deps
+```
+这个effect的依赖项是name这个变量，只有当name发生变化的时候才去执行里面的函数
+29. 动画有Animated.Value，Animated.timing动画方式，Animated.View
+30. 使用require引用图片包括尺寸信息。如果需要动态设置图片大小， style 属性设置`{ width: null, height: null }`即可。网络图片需要手动指定图片的尺寸
+31. Animated简洁的实现各种个样的动画和交互方式，Animated仅封装了 6 个可以动画化的组件：View、Text、Image、ScrollView、FlatList和SectionList
+32. [React Hooks指南](https://zhuanlan.zhihu.com/p/92211533)
+33. `const [state, setState] = useState({counter: 0})`，返回一个状态以及能修改这个状态的setter，mounte之后欧只能通过setter修改这个状态; 
+useEffect(effect: Function, deps?: Array)，处理函数组件中的副作用，如一步操作、延迟操作等，可以替代class组件中的componentDidMount、componentDidUpdate等生命周期方法;
+useContext用于在函数组件内部获取context存储的状态，useContext的实现比较简单，只是读取挂载在context对象上的_currentValue值并返回；
+`const [state, dispatch] = useReducer(reducer, {count: initialCount, step: 10});`,useReducer用于管理复杂的数据结构，基本实现了redux的核心功能；
+34. 

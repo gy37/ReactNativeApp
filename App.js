@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -33,16 +33,25 @@ import ScrollViewTest from './src/components/ScrollViewTest'
 import FastListTest from './src/components/FastListTest'
 import FlexBoxTest from './src/components/FlexBoxTest'
 import ImageTest from './src/components/ImageTest'
+import TouchTest from './src/components/TouchTest'
+import AnimationTest from './src/components/AnimationTest'
 
 const App = () => {//const App: () => React$Node = () => { Type annotations can only be used in TypeScript files.ts(8010)
-
+  useEffect(()=>{
+    console.log('useEffect在render之后执行');
+  });
   return (
     <>
       <StatusBar barStyle="dark-content" />
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
+          style={styles.scrollView}
+          onContentSizeChange={()=>{
+            this.scrollViewRef.scrollToEnd({animated: false});
+          }}
+          ref={(ref)=>this.scrollViewRef=ref}
+        >
           <Header />
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
@@ -50,7 +59,7 @@ const App = () => {//const App: () => React$Node = () => { Type annotations can 
             </View>
           )}
           <View style={styles.body}>
-            <View style={styles.sectionContainer}>
+            {/* <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
                 Edit <Text style={styles.highlight}>App.js</Text> to change this
@@ -74,7 +83,7 @@ const App = () => {//const App: () => React$Node = () => { Type annotations can 
               <Text style={styles.sectionDescription}>
                 Read the docs to discover what to do next:
               </Text>
-            </View>
+            </View> */}
             {/* <LearnMoreLinks /> */}
             <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
               <Text>Hello world</Text>
@@ -91,6 +100,8 @@ const App = () => {//const App: () => React$Node = () => { Type annotations can 
             <Text>{Platform.OS + " " + Platform.Version}</Text>
             <FlexBoxTest></FlexBoxTest>
             <ImageTest></ImageTest>
+            <TouchTest></TouchTest>
+            <AnimationTest></AnimationTest>
           </View>
         </ScrollView>
       </SafeAreaView>
