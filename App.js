@@ -7,145 +7,72 @@
  */
 
 import React, { useEffect } from 'react';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Image,
-  TextInput,
-  Platform
-} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Example from './src/pages/example';
+import Foundation from './src/pages/foundation';
+import Environment from './src/pages/environment';
+import { Button, Text } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const Stack = createNativeStackNavigator();
 
-import Cafe from './src/components/Cafe'
-import PizzaTranslator from './src/components/PizzaTranslator'
-import ScrollViewTest from './src/components/ScrollViewTest'
-import FastListTest from './src/components/FastListTest'
-import FlexBoxTest from './src/components/FlexBoxTest'
-import ImageTest from './src/components/ImageTest'
-import TouchTest from './src/components/TouchTest'
-import AnimationTest from './src/components/AnimationTest'
-
-const App = () => {//const App: () => React$Node = () => { Type annotations can only be used in TypeScript files.ts(8010)
+const App = () => {
   useEffect(()=>{
     console.log('useEffect在render之后执行');
   });
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}
-          onContentSizeChange={()=>{
-            this.scrollViewRef.scrollToEnd({animated: false});
-          }}
-          ref={(ref)=>this.scrollViewRef=ref}
-        >
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
-            </View>
-          )}
-          <View style={styles.body}>
-            {/* <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View> */}
-            {/* <LearnMoreLinks /> */}
-            <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
-              <Text>Hello world</Text>
-            </View>
-            <View>
-              <Text>Some text</Text>
-              <Image source={{uri: 'https://reactnative.dev/docs/assets/p_cat2.png'}} style={{width: 200, height: 200}} />
-              <TextInput style={{height: 40, borderColor: 'gray', borderWidth: 1}} defaultValue="input text here"></TextInput>
-            </View>
-            <Cafe></Cafe>
-            <PizzaTranslator></PizzaTranslator>
-            <ScrollViewTest></ScrollViewTest>
-            <FastListTest></FastListTest>
-            <Text>{Platform.OS + " " + Platform.Version}</Text>
-            <FlexBoxTest></FlexBoxTest>
-            <ImageTest></ImageTest>
-            <TouchTest></TouchTest>
-            <AnimationTest></AnimationTest>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <NavigationContainer>
+      <Stack.Navigator
+        initialRouteName="Example"
+        screenOptions={{
+          headerStyle: {
+            backgroundColor: '#f4511e',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerBackTitle: '返回',
+        }}>
+        <Stack.Screen
+          name="Example"
+          component={Example}
+          options={({navigation, route}) => ({ //options可以获取到navigation和route参数
+            title: '示例',
+            headerRight: () => (
+              <Button
+                onPress={() => navigation.navigate('Foundation', {
+                  itemId: 86,
+                  otherParam: 'anything you want here',
+                })}
+                title="Foundation"
+                color="#fff"
+              />
+            ),
+          })}/>
+        <Stack.Screen
+          name="Foundation"
+          component={Foundation}
+          options={({navigation, route}) => ({
+            title: '入门基础',
+            headerRight: () => (
+              <Button
+                onPress={() => navigation.navigate('Environment')}
+                title="Environment"
+                color="#fff"
+              />
+            ),
+          })}
+          initialParams={{itemId: 0}}
+        />
+        <Stack.Screen
+          name="Environment"
+          component={Environment}
+          options={{ title: '环境搭建', }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
-});
 
 export default App;

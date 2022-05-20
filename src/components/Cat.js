@@ -8,6 +8,7 @@ const getFullName = (firstName, middleName, lastName) => {
 const Cat = (props) => {
   //[<取值>, <设值>] = useState(<初始值>)
   const [isHungry, setIsHungry] = useState(true);
+  //当你调用setIsHungry这样的设置状态的函数时，其所在的组件会重新渲染。此处这一整个Cat函数都会从头重新执行一遍。重新执行的时候，useState会返回给我们新设置的值。
   const name = "Maru";
   return (
     <View>
