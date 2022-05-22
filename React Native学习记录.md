@@ -71,3 +71,12 @@ const Component = Platform.select({
 41. navigation.navigate('RouteName', { paramName: 'value' })传递参数；使用route.params获取参数；navigation.setParams页面内修改参数；initialParams设置页面初始参数；参数应该尽量少；
 42. 自定义header，设置页面的options或者导航的screenOptions来设置；页面options可以是对象也可以是函数，函数有navigation和route参数；
 43. headerLeft和headerRight设置导航栏左右按钮；headerBackTitle, headerBackTitleStyle, 和 headerBackImageSource可以单独设置返回按钮属性；
+44. Button组件样式固定，可以用TouchableOpacity或者TouchableNativeFeedback来定制需要的按钮；
+45. 设置scrollview高度，通过包裹view，设置view的属性来实现；
+46. const styles = StyleSheet.create({});声明styles样式对象，在组件中通过引用该对象的key来使用对象；样式名称改为驼峰命名的；
+47. View, Text, Image, ScrollView, FlatList, SectionList支持动画；Animated.timing使用easing动画；Animated.spring弹性物理动画；Animated.decay由快到慢动画；Animated.Value定义单个动画值；Animated.ValueXY定义动画向量值；
+48. Animated.parallel组合动画；value.interpolate动画值映射，inputRange中的值映射为outputRange的值；通过动画值映射可以实现一个值控制多个属性动画；你可以通过设置extrapolate、extrapolateLeft或extrapolateRight属性来限制输出区间。默认值是extend（允许超出），不过你可以使用clamp选项来阻止输出值超过outputRange。
+49. Animated.event手势动画，根据滚动或者滑动手势事件设置动画值；
+50. useRef返回可变的ref对象，该对象只有一个current属性；返回的ref对象在整个生命周期内不变；更新值时不会重新渲染，和useState不同；使用useRef定义变量，保证获取到最新的数据；
+51. 动画组件，动画属性值，动画开始时机；
+52. LayoutAnimation 全局配置创建和更新渲染动画；

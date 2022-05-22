@@ -12,7 +12,11 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Example from './src/pages/example';
 import Foundation from './src/pages/foundation';
 import Environment from './src/pages/environment';
-import { Button, Text } from 'react-native';
+import Develop from './src/pages/develop';
+import Design from './src/pages/design';
+
+import { Button, Text, Alert } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -25,13 +29,13 @@ const App = () => {
       <Stack.Navigator
         initialRouteName="Example"
         screenOptions={{
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          },
+          // headerStyle: {
+          //   backgroundColor: '#f4511e',
+          // },
+          // headerTintColor: '#fff',
+          // headerTitleStyle: {
+          //   fontWeight: 'bold',
+          // },
           headerBackTitle: '返回',
         }}>
         <Stack.Screen
@@ -41,34 +45,37 @@ const App = () => {
             title: '示例',
             headerRight: () => (
               <Button
-                onPress={() => navigation.navigate('Foundation', {
-                  itemId: 86,
-                  otherParam: 'anything you want here',
-                })}
-                title="Foundation"
-                color="#fff"
+                onPress={() =>
+                  Alert.alert('测试标题', '测试内容', [
+                    { text: '确定', onPress: ()=>{console.log('点击确定按钮')} },
+                    { text: '取消', style: 'cancel' }
+                  ],)
+                }
+                title="测试"
+                color={Colors.primary}
               />
             ),
           })}/>
         <Stack.Screen
           name="Foundation"
           component={Foundation}
-          options={({navigation, route}) => ({
-            title: '入门基础',
-            headerRight: () => (
-              <Button
-                onPress={() => navigation.navigate('Environment')}
-                title="Environment"
-                color="#fff"
-              />
-            ),
-          })}
+          options={{ title: '入门基础', }}
           initialParams={{itemId: 0}}
         />
         <Stack.Screen
           name="Environment"
           component={Environment}
           options={{ title: '环境搭建', }}
+        />
+        <Stack.Screen
+          name="Develop"
+          component={Develop}
+          options={{ title: '开发流程', }}
+        />
+        <Stack.Screen
+          name="Design"
+          component={Design}
+          options={{ title: '设计', }}
         />
       </Stack.Navigator>
     </NavigationContainer>

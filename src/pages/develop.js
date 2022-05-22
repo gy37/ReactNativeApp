@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, View } from 'react-native';
 
-const Environment = () => {
+const Develop = () => {
   return (
     <View>
 
@@ -13,4 +13,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Environment;
+export default Develop;

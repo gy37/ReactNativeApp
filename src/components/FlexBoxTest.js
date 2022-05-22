@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from "react-native";
 
 const FlexBotTest = () => {
   const [flexDirection, setFlexDirection] = useState("column");
@@ -10,7 +10,7 @@ const FlexBotTest = () => {
   const [position, setPosition] = useState("relative");
 
   return (
-    <>
+    <ScrollView>
       <PreviewLayout
         label="flexDirection"
         values={["column", "row", "column-reverse", "row-reverse"]}
@@ -83,7 +83,7 @@ const FlexBotTest = () => {
         <View style={[styles.box, { backgroundColor: "skyblue", position, top: 50, left: 50 }]}></View>
         <View style={[styles.box, { backgroundColor: "steelblue", position, top: 75, left: 75 }]}></View>
       </PreviewLayout>
-    </>
+    </ScrollView>
   );
 };
 

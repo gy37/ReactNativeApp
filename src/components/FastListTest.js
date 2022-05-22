@@ -4,7 +4,7 @@ import {Text, View, FlatList, StyleSheet, SectionList} from 'react-native'
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 22
+    paddingTop: 22,
   },
   item: {
     padding: 10,
@@ -26,7 +26,7 @@ const FastListTest = () => {
   const [text, setText] = useState('');
   return (
     <View style={styles.container}>
-      <FlatList 
+      <FlatList
         data={[
           {key: 'Devin'},
           {key: 'Dan'},

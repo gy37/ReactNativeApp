@@ -14,6 +14,8 @@ import {
   View,
   Text,
   StatusBar,
+  Button,
+  TouchableOpacity,
 } from 'react-native';
 
 import {
@@ -24,7 +26,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const Example = () => {//const App: () => React$Node = () => { Type annotations can only be used in TypeScript files.ts(8010)
+const Example = ({navigation, route}) => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
@@ -33,7 +35,7 @@ const Example = () => {//const App: () => React$Node = () => { Type annotations 
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}
           onContentSizeChange={()=>{
-            this.scrollViewRef.scrollToEnd({animated: false});
+            // this.scrollViewRef.scrollToEnd({animated: false});
           }}
           ref={(ref)=>this.scrollViewRef=ref}
         >
@@ -44,6 +46,12 @@ const Example = () => {//const App: () => React$Node = () => { Type annotations 
             </View>
           )}
           <View style={styles.body}>
+            <View style={styles.buttonContainer}>
+              <Button title="入门基础" onPress={()=>navigation.navigate('Foundation')} />
+              <Button title="环境搭建" onPress={()=>navigation.navigate('Environment')} />
+              <Button title="开发流程" onPress={()=>navigation.navigate('Develop')} />
+              <Button title="设计" onPress={()=>navigation.navigate('Design')} />
+            </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
@@ -114,6 +122,13 @@ const styles = StyleSheet.create({
     paddingRight: 12,
     textAlign: 'right',
   },
+
+  buttonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 32,
+  }
 });
 
 export default Example;

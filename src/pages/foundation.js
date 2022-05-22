@@ -31,10 +31,6 @@
  import PizzaTranslator from '../components/PizzaTranslator'
  import ScrollViewTest from '../components/ScrollViewTest'
  import FastListTest from '../components/FastListTest'
- import FlexBoxTest from '../components/FlexBoxTest'
- import ImageTest from '../components/ImageTest'
- import TouchTest from '../components/TouchTest'
- import AnimationTest from '../components/AnimationTest'
 
  const Foundation = ({navigation, route}) => {//组件里可以获取navigation和route参数
    console.log('navigation', navigation);
@@ -43,7 +39,8 @@
      console.log('useEffect在render之后执行');
    });
    return (
-    <View>
+    <View style={{flex: 1, overflow: 'scroll'}}>
+      {/* <>
       <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
         <Text>Hello world</Text>
       </View>
@@ -54,13 +51,11 @@
       </View>
       <Cafe></Cafe>
       <PizzaTranslator></PizzaTranslator>
+      </> */}
+
       <ScrollViewTest></ScrollViewTest>
       <FastListTest></FastListTest>
       <Text>{Platform.OS + " " + Platform.Version}</Text>
-      <FlexBoxTest></FlexBoxTest>
-      <ImageTest></ImageTest>
-      <TouchTest></TouchTest>
-      <AnimationTest></AnimationTest>
     </View>
    );
  };

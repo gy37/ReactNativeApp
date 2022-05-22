@@ -1,15 +1,15 @@
 import React, {useState} from 'react'
-import { Text, View, TextInput, Image, Button, ImageBackground } from 'react-native'
+import { Text, View, TextInput, Image, Button, ImageBackground, ScrollView } from 'react-native'
 
 const ImageTest = (props) => {
   //[<取值>, <设值>] = useState(<初始值>)
-  
+
   //ios网络图片缓存策略，reload不用缓存，force-cache使用缓存，没有则请求，only-if-cached使用缓存，没有不请求
   return (
-    <View>
+    <ScrollView style={{flex: 1}}>
       <Image source={require('../files/aaa.png')} style={{width: 400}}></Image>
-      <Image 
-        source={{uri: 'https://facebook.github.io/react/logo-og.png', cache: 'only-if-cached',}} 
+      <Image
+        source={{uri: 'https://facebook.github.io/react/logo-og.png', cache: 'only-if-cached',}}
         style={{width: 400, height: 400}}
       >
       </Image>
@@ -21,7 +21,7 @@ const ImageTest = (props) => {
         <Text style={{color: 'white'}}>测试背景图片</Text>
         <View style={{backgroundColor: 'darkorange', width: 100, height: 100}}></View>
       </ImageBackground>
-    </View>
+    </ScrollView>
   )
 }
 
