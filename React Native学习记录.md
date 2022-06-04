@@ -80,3 +80,96 @@ const Component = Platform.select({
 50. useRef返回可变的ref对象，该对象只有一个current属性；返回的ref对象在整个生命周期内不变；更新值时不会重新渲染，和useState不同；使用useRef定义变量，保证获取到最新的数据；
 51. 动画组件，动画属性值，动画开始时机；
 52. LayoutAnimation 全局配置创建和更新渲染动画；
+53. 使用Mac开发react native，必须安装的依赖有：Node、Watchman、Xcode 和 CocoaPods。
+54. react-native-cli创建新项目，`npx react-native init AwesomeProject`，不要在目录、文件名中使用中文、空格等特殊符号，空格会导致安装依赖报错；
+55. 可以不安装yarn，使用npm run ios启动项目；也可以使用Xcode直接运行项目；
+56. 集成到现有iOS原生应用：
+  * 将现有项目拷贝到react native的ios目录下
+  * 创建package.json文件，进入项目目录，安装react-native，react
+  * 在Podfile文件中，指定所需要使用的"subspecs"，新建rn项目，并复制Podfile到本项目中
+  * 加载打包后的js文件，或者访问本地js开发服务器
+  * use RCTBridge initWithBundleURL to create a bridge and then use RCTRootView initWithBridge创建View
+57. 集成到现有安卓原生应用：
+  * 将现有项目拷贝到react native的android目录下
+  * 创建package.json文件，进入项目目录，安装react-native，react
+  * 在 app 中 build.gradle 文件中添加 React Native 和 JSC 引擎依赖
+  * 自动连接，First add the following entry to settings.gradle，Next add the following entry at the very bottom of the app/build.gradle
+  * 配置权限
+  * 加载打包后的js文件，或者访问本地js开发服务器
+  * 使用单例保存ReactInstanceManager对象；生成ReactRootView；activity生命周期回调函数和ReactInstanceManager绑定；
+58. 集成到Android Fragment：
+  * render your React Native component into a Fragment instead of a full screen React Native Activity
+  * implement the ReactApplication interface in your main Application Java/Kotlin class
+  * Add a FrameLayout for the React Native Fragment
+  * Add a React Native Fragment to the FrameLayout
+  * `Fragment reactNativeFragment = new ReactFragment.Builder()` creates the ReactFragment and `getSupportFragmentManager().beginTransaction().add()` adds the Fragment to the Frame Layout.
+59. 网络连接，使用Fetch进行网络请求，fetch(url, {method: '', header: {}, body: {})；返回promise对象；
+60. FlatList中，renderItem中的item是包装过的，需要通过item.item解析出原始数据；keyExtractor中的item是原始数据，可以直接获取ID；
+61. 与网页环境有所不同，在RN应用中你可以访问任何网站，没有跨域的限制；
+62. 大多数 React Native 应用来说，业务逻辑是运行在 JavaScript 线程上的。这是 React 应用所在的线程，也是发生 API 调用，以及处理触摸事件等操作的线程；
+63. FlatList优化，List Item优化；
+64. 分模块加载，使用require代替import，使用时在加载模块，只加载一次；
+65. requestAnimationFrame(): 用来执行在一段时间内控制视图动画的代码；
+setImmediate/setTimeout/setInterval(): 在稍后执行代码。注意这有可能会延迟当前正在进行的动画；
+runAfterInteractions(): 在稍后执行代码，不会延迟当前进行的动画；
+66. 从终端启动Android studio `open -a /Applications/Android\ Studio.app`
+67. 安卓模拟器RR，CMD+M；iOS模拟器CMD+R，CMD+D；
+68. 安卓原生模块：
+  * 继承了ReactContextBaseJavaModule的 Java 类
+  * 定义一些常量，供js使用
+  * 导出一个方法给 JavaScript 使用，Java 方法需要使用注解@ReactMethod，方法的返回类型必须为void
+  * 最后注册这个Java模块，在应用的 Package 类的createNativeModules方法中添加这个模块
+  * 桥接到 JavaScript 的方法返回值类型必须是void。React Native 的桥接操作是异步的，使用回调来传递参数
+69. 安卓回调函数，最后一个函数参数是成功回调，倒数第二个函数参数是失败回调；也可以使用Promise来简化；通过RCTDeviceEventEmitter发送事件给js，组件加载时添加观察者，组件卸载时已出观察者；
+70. 安卓方法中的参数类型对照：
+    Boolean -> Bool
+    Integer -> Number
+    Double -> Number
+    Float -> Number
+    String -> String
+    Callback -> function
+    ReadableMap/WritableMap -> Object
+    ReadableArray -> Array
+71. 如果你使用startActivityForResult调起了一个 activity 并想从其中获取返回结果，那么你需要监听onActivityResult事件。具体的做法是继承BaseActivityEventListener或是实现ActivityEventListener；
+72. iOS原生模块：
+  * 实现RCTBridgeModule，继承NSObject的子类
+  * 类中包含RCT_EXPORT_MODULE()宏，指定模块名称
+  * RCT_EXPORT_METHOD导出方法
+  * 桥接到 JavaScript 的方法返回值类型必须是void。React Native 的桥接操作是异步的，使用回调来传递参数
+73. iOS导出方法参数类型：
+    string (NSString)
+    number (NSInteger, float, double, CGFloat, NSNumber)
+    boolean (BOOL, NSNumber)
+    array (NSArray) 可包含本列表中任意类型
+    object (NSDictionary) 可包含 string 类型的键和本列表中任意类型的值
+    function (RCTResponseSenderBlock)
+74. 也可以使用RCTConvert转换json对象为oc类型对象；
+75. promise.then(onFulfilled[, onRejected]);then方法里面可以穿两个参数，成功回调和失败回调；promise只能被调用一次，promise.then/promise.reject；
+76. RCT_REMAP_METHOD()宏，它可以指定 JavaScript 方法名可以和iOS里的方法名不一样；
+77. iOS回调函数RCTResponseSenderBlock，接收一个数组参数，数组中第一个是错误对象，第二个是函数返回值；也可以使用Promise来回调；
+78. 通过methodQueue指定原生模块在那个队列中运行；也可以在方法内部指定单个方法的运行队列；
+79. 通过constantsToExport导出常量给js使用；requiresMainQueueSetup确定是否在主队列上运行；用`NS_ENUM`定义的枚举类型必须要先扩展对应的 RCTConvert 方法才可以作为函数参数传递。
+80. 原生模块也可以给 JavaScript 发送事件通知。最好的方法是继承RCTEventEmitter，实现suppportEvents方法并调用self sendEventWithName:。
+81. 安卓原生UI组件：
+  * 原生视图需要被一个ViewManager的派生类（或者更常见的，SimpleViewManager的派生类）创建和管理。
+  * 创建一个 ViewManager 的子类。
+  * 实现createViewInstance方法。
+  * 导出视图的属性设置器：使用@ReactProp（或@ReactPropGroup）注解。
+  * 把这个视图管理类注册到应用程序包的createViewManagers里。
+  * 实现 JavaScript 模块。
+82. @ReactProp注解必须包含一个字符串类型的参数name。这个参数指定了对应属性在 JavaScript 端的名字。
+83. 要导出给 JavaScript 使用的属性，需要申明带有@ReactProp（或@ReactPropGroup）注解的设置方法。方法的第一个参数是要修改属性的视图实例，第二个参数是要设置的属性值。
+84. `Cannot run program “node”: error=2, No such file or directory` 需要从控制台启动Android Studio；
+85. iOS原生UI组件：
+  * 首先创建一个RCTViewManager的子类。
+  * 添加RCT_EXPORT_MODULE()宏标记。
+  * 实现-(UIView *)view方法。
+86. 在js中引用原生组件时，记得要设置大小，不然不会显示；
+87. android想rn发事件：reactContext.getJSModule(RCTEventEmitter.class).receiveEvent(getId(), "topChange", params)绑定事件；manager类重写getExportedCustomBubblingEventTypeConstants方法，指定时间名称和导出事件名称；
+88. rn想android发事件：重写getCommandsMap()方法返回要支持的事件；重写receiveCommand方法，处理接受到的事件；rn中调用UIManager.dispatchViewManagerCommand方法，发送事件给原生；
+89. ios向rn发事件：添加RCTBubblingEventBlock类型的block，然后在 Manager上声明一个事件处理函数属性，将其作为所暴露出来的所有视图的委托，并调用本地视图的事件处理将事件转发至 rn；
+90. rn向iOS发送事件：调用UIManager.dispatchViewManagerCommand方法，iOS导出原生方法；
+91. 使用forwardRef传递ref到父组件，rn中发送事件需要获取到requireNativeComponent原生组件的ref；
+92. setNativeProps直接设置视图属性，相当于操作真是DOM节点；
+93. 如果你通过React.createClass方法自定义了一个组件，直接给它设置样式 prop 是不会生效的，你得把样式 props 层层向下传递给子组件，直到子组件是一个能够直接定义样式的原生组件。同理，我们也需要把setNativeProps传递给由原生组件封装的子组件。
+94.

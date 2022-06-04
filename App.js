@@ -14,6 +14,10 @@ import Foundation from './src/pages/foundation';
 import Environment from './src/pages/environment';
 import Develop from './src/pages/develop';
 import Design from './src/pages/design';
+import Performance from './src/pages/performance';
+import JSEnvironment from './src/pages/jsEnvironment';
+import NativeModule from './src/pages/nativeModulePage';
+import NativeComponent from './src/pages/nativeComponentPage';
 
 import { Button, Text, Alert } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
@@ -76,6 +80,26 @@ const App = () => {
           name="Design"
           component={Design}
           options={{ title: '设计', }}
+        />
+        <Stack.Screen
+          name="Performance"
+          component={Performance}
+          options={{ title: '性能调优', }}
+        />
+        <Stack.Screen
+          name="JSEvnironemnt"
+          component={JSEnvironment}
+          options={{ title: 'JavaScript运行环境', }}
+        />
+        <Stack.Screen
+          name="NativeModule"
+          component={NativeModule}
+          options={{ title: '原生模块', }}
+        />
+        <Stack.Screen
+          name="NativeComponent"
+          component={NativeComponent}
+          options={{ title: '原生组件', }}
         />
       </Stack.Navigator>
     </NavigationContainer>

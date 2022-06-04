@@ -18,8 +18,11 @@
 		2DCD954D1E0B4F2C00145EB5 /* myReactNativeAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* myReactNativeAppTests.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A619AEDF15F579B5C6445021 /* libPods-myReactNativeApp-myReactNativeAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4092C8FE6F943930401F38E /* libPods-myReactNativeApp-myReactNativeAppTests.a */; };
+		D83C7CDF284393F6009F46B3 /* CalendarManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D83C7CDE284393F6009F46B3 /* CalendarManager.m */; };
+		D889D51A284AE67E00C2E8FD /* RCTMyMapView.m in Sources */ = {isa = PBXBuildFile; fileRef = D889D519284AE67E00C2E8FD /* RCTMyMapView.m */; };
+		D892C201284A017E006F9A64 /* RCTMapManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D892C200284A017E006F9A64 /* RCTMapManager.m */; };
+		D892C210284A4300006F9A64 /* RCTConvert+MapKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D892C20F284A4300006F9A64 /* RCTConvert+MapKit.m */; };
 		E4B6431578177BA8AD647C4A /* libPods-myReactNativeApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F84E1500588285151041255E /* libPods-myReactNativeApp-tvOS.a */; };
-		F197CADBAF0D9BE1547844F3 /* libPods-myReactNativeApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F18A6A49AC9E8BFE012BCCAE /* libPods-myReactNativeApp.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,10 +65,17 @@
 		9970458BABB14F719D94155D /* Pods-myReactNativeApp-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myReactNativeApp-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-myReactNativeApp-tvOSTests/Pods-myReactNativeApp-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B4092C8FE6F943930401F38E /* libPods-myReactNativeApp-myReactNativeAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myReactNativeApp-myReactNativeAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C6E0F287752BAE18337D0A40 /* libPods-myReactNativeApp-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myReactNativeApp-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D83C7CDD284393F6009F46B3 /* CalendarManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CalendarManager.h; path = myReactNativeApp/CalendarManager.h; sourceTree = "<group>"; };
+		D83C7CDE284393F6009F46B3 /* CalendarManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CalendarManager.m; path = myReactNativeApp/CalendarManager.m; sourceTree = "<group>"; };
+		D889D518284AE67E00C2E8FD /* RCTMyMapView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RCTMyMapView.h; path = myReactNativeApp/RCTMyMapView.h; sourceTree = "<group>"; };
+		D889D519284AE67E00C2E8FD /* RCTMyMapView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RCTMyMapView.m; path = myReactNativeApp/RCTMyMapView.m; sourceTree = "<group>"; };
+		D892C1FF284A017E006F9A64 /* RCTMapManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RCTMapManager.h; path = myReactNativeApp/RCTMapManager.h; sourceTree = "<group>"; };
+		D892C200284A017E006F9A64 /* RCTMapManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RCTMapManager.m; path = myReactNativeApp/RCTMapManager.m; sourceTree = "<group>"; };
+		D892C20E284A4300006F9A64 /* RCTConvert+MapKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "RCTConvert+MapKit.h"; path = "myReactNativeApp/RCTConvert+MapKit.h"; sourceTree = "<group>"; };
+		D892C20F284A4300006F9A64 /* RCTConvert+MapKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "RCTConvert+MapKit.m"; path = "myReactNativeApp/RCTConvert+MapKit.m"; sourceTree = "<group>"; };
 		D936AC457E05C917994B8AA6 /* Pods-myReactNativeApp-myReactNativeAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myReactNativeApp-myReactNativeAppTests.release.xcconfig"; path = "Target Support Files/Pods-myReactNativeApp-myReactNativeAppTests/Pods-myReactNativeApp-myReactNativeAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
-		F18A6A49AC9E8BFE012BCCAE /* libPods-myReactNativeApp.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myReactNativeApp.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F84E1500588285151041255E /* libPods-myReactNativeApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-myReactNativeApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,7 +92,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F197CADBAF0D9BE1547844F3 /* libPods-myReactNativeApp.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +156,14 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				D83C7CDD284393F6009F46B3 /* CalendarManager.h */,
+				D83C7CDE284393F6009F46B3 /* CalendarManager.m */,
+				D892C1FF284A017E006F9A64 /* RCTMapManager.h */,
+				D892C200284A017E006F9A64 /* RCTMapManager.m */,
+				D889D518284AE67E00C2E8FD /* RCTMyMapView.h */,
+				D889D519284AE67E00C2E8FD /* RCTMyMapView.m */,
+				D892C20E284A4300006F9A64 /* RCTConvert+MapKit.h */,
+				D892C20F284A4300006F9A64 /* RCTConvert+MapKit.m */,
 			);
 			name = myReactNativeApp;
 			sourceTree = "<group>";
@@ -156,7 +173,6 @@
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
-				F18A6A49AC9E8BFE012BCCAE /* libPods-myReactNativeApp.a */,
 				B4092C8FE6F943930401F38E /* libPods-myReactNativeApp-myReactNativeAppTests.a */,
 				F84E1500588285151041255E /* libPods-myReactNativeApp-tvOS.a */,
 				C6E0F287752BAE18337D0A40 /* libPods-myReactNativeApp-tvOSTests.a */,
@@ -568,8 +584,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D892C210284A4300006F9A64 /* RCTConvert+MapKit.m in Sources */,
+				D892C201284A017E006F9A64 /* RCTMapManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				D83C7CDF284393F6009F46B3 /* CalendarManager.m in Sources */,
+				D889D51A284AE67E00C2E8FD /* RCTMyMapView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

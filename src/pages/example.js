@@ -48,9 +48,14 @@ const Example = ({navigation, route}) => {
           <View style={styles.body}>
             <View style={styles.buttonContainer}>
               <Button title="入门基础" onPress={()=>navigation.navigate('Foundation')} />
-              <Button title="环境搭建" onPress={()=>navigation.navigate('Environment')} />
+              {/* <Button title="环境搭建" onPress={()=>navigation.navigate('Environment')} /> */}
               <Button title="开发流程" onPress={()=>navigation.navigate('Develop')} />
               <Button title="设计" onPress={()=>navigation.navigate('Design')} />
+              {/* <Button title="性能调优" onPress={()=>navigation.navigate('Performance')} /> */}
+              <Button title="原生模块" onPress={()=>navigation.navigate('NativeModule')} />
+              <Button title="原生组件" onPress={()=>navigation.navigate('NativeComponent')} />
+
+              {/* <Button title="核心组件" onPress={()=>navigation.navigate('')} /> */}
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
@@ -125,10 +130,11 @@ const styles = StyleSheet.create({
 
   buttonContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    justifyContent: 'space-around',
     alignItems: 'center',
     marginTop: 32,
-  }
+    flexWrap: 'wrap'
+  },
 });
 
 export default Example;
