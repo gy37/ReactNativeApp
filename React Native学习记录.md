@@ -172,4 +172,6 @@ runAfterInteractions(): 在稍后执行代码，不会延迟当前进行的动�
 91. 使用forwardRef传递ref到父组件，rn中发送事件需要获取到requireNativeComponent原生组件的ref；
 92. setNativeProps直接设置视图属性，相当于操作真是DOM节点；
 93. 如果你通过React.createClass方法自定义了一个组件，直接给它设置样式 prop 是不会生效的，你得把样式 props 层层向下传递给子组件，直到子组件是一个能够直接定义样式的原生组件。同理，我们也需要把setNativeProps传递给由原生组件封装的子组件。
-94.
+94. Headless JS 是一种使用 js 在后台执行任务的方法。它可以用来在后台同步数据、处理推送通知或是播放音乐等等。
+95. Debug iOS项目中默认的宏定义，debug模式下是1，release模式下没有值；可以判断是debug还是release模式；
+96. useCallBack会固定该函数的引用，只要依赖项没有发生改变，则始终返回之前函数的地址；useCallback的作用其实是用来避免子组件不必要的reRender；对于这种deps不是经常变化的情况，我们用useCallback和React.memo的方式可以很好地避免子组件无效的reRender；

@@ -18,6 +18,7 @@ import Performance from './src/pages/performance';
 import JSEnvironment from './src/pages/jsEnvironment';
 import NativeModule from './src/pages/nativeModulePage';
 import NativeComponent from './src/pages/nativeComponentPage';
+import ComponentTest from './src/pages/componentTest';
 
 import { Button, Text, Alert } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
@@ -100,6 +101,11 @@ const App = () => {
           name="NativeComponent"
           component={NativeComponent}
           options={{ title: '原生组件', }}
+        />
+        <Stack.Screen
+          name="ComponentsAndApis"
+          component={ComponentTest}
+          options={{ title: '组件和API', }}
         />
       </Stack.Navigator>
     </NavigationContainer>

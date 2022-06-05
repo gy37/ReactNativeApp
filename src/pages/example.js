@@ -55,7 +55,7 @@ const Example = ({navigation, route}) => {
               <Button title="原生模块" onPress={()=>navigation.navigate('NativeModule')} />
               <Button title="原生组件" onPress={()=>navigation.navigate('NativeComponent')} />
 
-              {/* <Button title="核心组件" onPress={()=>navigation.navigate('')} /> */}
+              <Button title="核心组件" onPress={()=>navigation.navigate('ComponentsAndApis')} />
             </View>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>

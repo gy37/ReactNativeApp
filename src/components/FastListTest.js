@@ -1,29 +1,16 @@
 import React, {useState} from 'react';
-import {Text, View, FlatList, StyleSheet, SectionList} from 'react-native'
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: 22,
-  },
-  item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44
-  },
-  secontionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
-    backgroundColor: 'rgba(247, 247, 247, 1.0)'
-  }
-});
+import {Text, View, FlatList, StyleSheet, SectionList, TouchableOpacity} from 'react-native';
 
 const FastListTest = () => {
-  const [text, setText] = useState('');
+  const [selectedKey, setSelectedKey] = useState('');
+  const renderItem = ({item}) => {
+    const backgroundColor = item.key==selectedKey ? '#6e3b6e' : '#f9c2ff';
+    return (
+      <TouchableOpacity onPress={()=>setSelectedKey(item.key)} style={[styles.item, {backgroundColor}]}>
+        <Text style={{fontSize: 18}}>{item.key}</Text>
+      </TouchableOpacity>
+    );
+  };
   return (
     <View style={styles.container}>
       <FlatList
@@ -39,9 +26,7 @@ const FastListTest = () => {
           {key: 'Jimmy'},
           {key: 'Julie'}
         ]}
-        renderItem={
-          ({item}) => <Text style={styles.item}>{item.key}</Text>
-        }
+        renderItem={renderItem}
       >
       </FlatList>
       <SectionList
@@ -64,5 +49,26 @@ const FastListTest = () => {
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingTop: 22,
+  },
+  item: {
+    padding: 10,
+    height: 44,
+    marginHorizontal: 16,
+  },
+  secontionHeader: {
+    paddingTop: 2,
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingBottom: 2,
+    fontSize: 14,
+    fontWeight: 'bold',
+    backgroundColor: 'rgba(247, 247, 247, 1.0)'
+  }
+});
 
 export default FastListTest;
